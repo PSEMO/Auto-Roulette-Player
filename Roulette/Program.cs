@@ -226,22 +226,26 @@ while (NumberOfRolls < 100000000)//play x times
     }
 }
 
-Console.WriteLine("Number between 01-18: " + ((B1_18 / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Number between 19-36: " + ((B19_36 / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Number between 01-12: " + ((B1_12 / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Number between 13-24: " + ((B13_24 / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Number between 25-36: " + ((B25_36 / NumberOfRolls) * 100d).ToString("F6") + "%");
+Console.WriteLine("Number between 01-18: " + Percentage(B1_18, NumberOfRolls));
+Console.WriteLine("Number between 19-36: " + Percentage(B19_36, NumberOfRolls));
+Console.WriteLine("Number between 01-12: " + Percentage(B1_12, NumberOfRolls));
+Console.WriteLine("Number between 13-24: " + Percentage(B13_24, NumberOfRolls));
+Console.WriteLine("Number between 25-36: " + Percentage(B25_36, NumberOfRolls));
 
-Console.WriteLine("Red: " + ((Red / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Black: " + ((Black / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Green: " + ((Green / NumberOfRolls) * 100d).ToString("F6") + "%");
+Console.WriteLine("Red: " + Percentage(Red, NumberOfRolls));
+Console.WriteLine("Black: " + Percentage(Black, NumberOfRolls));
+Console.WriteLine("Green: " + Percentage(Green, NumberOfRolls));
 
-Console.WriteLine("Even: " + ((Even / NumberOfRolls) * 100d).ToString("F6") + "%");
-Console.WriteLine("Odd: " + ((Odd / NumberOfRolls) * 100d).ToString("F6") + "%");
+Console.WriteLine("Even: " + Percentage(Even, NumberOfRolls));
+Console.WriteLine("Odd: " + Percentage(Odd, NumberOfRolls));
 
 int i = 0;
 foreach (double number in Numbers)
 {
     i++;
     Console.WriteLine("Number " + i +": " + ((number / NumberOfRolls) * 100).ToString("F6") + "%");
+}
+string Percentage(double Number, double Total)
+{
+    return ((Number / Total) * 100d).ToString("F6") + "%";
 }
